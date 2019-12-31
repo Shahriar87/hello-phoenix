@@ -21,6 +21,12 @@ defmodule HelloWeb.Router do
     get "/hello/:messenger", HelloController, :show
 
     forward "/jobs", BackgroundJob.Plug, name: "Hello Phoenix"
+
+    resources "/users", UserController do
+      resources "/posts", PostController
+    end
+
+
   end
 
   # Other scopes may use custom stacks.
