@@ -22,10 +22,11 @@ defmodule HelloWeb.Router do
 
     forward "/jobs", BackgroundJob.Plug, name: "Hello Phoenix"
 
-    resources "/users", UserController do
-      resources "/posts", PostController
-    end
+#    resources "/users", UserController do
+#      resources "/posts", PostController
+#    end
 
+    resources "/reviews", ReviewController
 
   end
 
@@ -33,4 +34,16 @@ defmodule HelloWeb.Router do
   # scope "/api", HelloWeb do
   #   pipe_through :api
   # end
+
+  scope "/admin", HelloWeb.Admin, as: :admin do
+    pipe_through :browser
+
+    resources "/images",  ImageController
+    resources "/reviews", ReviewController
+    resources "/users",   UserController
+  end
+
+
+
+
 end
