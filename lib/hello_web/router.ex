@@ -31,7 +31,7 @@ defmodule HelloWeb.Router do
   end
 
   scope "/reviews", HelloWeb do
-    pipe_through [:browser, :review_checks]
+#    pipe_through [:browser, :review_checks]
 
     resources "/", ReviewController
   end
