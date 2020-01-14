@@ -19,7 +19,7 @@ defmodule HelloWeb.Router do
   use HelloWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
+    plug :accepts, ["html", "text"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
@@ -38,7 +38,7 @@ defmodule HelloWeb.Router do
 
     get "/", PageController, :index
     get "/hello", HelloController, :index
-    get "/hello/:messenger", HelloController, :show
+    get "/hello/:id", HelloController, :show
 
     forward "/jobs", BackgroundJob.Plug, name: "Hello Phoenix"
 

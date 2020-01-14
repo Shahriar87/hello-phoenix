@@ -1,4 +1,4 @@
 <div class="phx-hero">
-  <h2>Hello Shah!, from Phoenix!</h2>
+  <h2>Hello <%= @name %>, <%= @message %> from Phoenix!</h2>
   <a href="<%= Routes.page_path(@conn, :index) %>">To the Welcome Page!</a>
 </div>
